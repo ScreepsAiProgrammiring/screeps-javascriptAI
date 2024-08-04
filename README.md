@@ -1,2 +1,58 @@
-# screeps-javascriptAI
-Coding an AI for screeps, the MMO game
+Репозиторий для написания кода в игре Sceeps на питоне
+В папке `/src` предлагается писать логику самого ИИ для игры
+
+----
+
+1) Настройка работы с кодом (для Windows):
+
+* Установка Visual Code
+* Установка Git
+
+ссылка для скачивания установщика: [https://git-scm.com/download/win](https://git-scm.com/download/win)
+
+при установке можно оставлять все дефолтные значения, но сам путь установки я бы рекомендовал не делать дефолтный:
+лучше сделать отдельную папку для всяких таких Установок (напр `C:\Tools\`), в которой создавать 
+
+* Установка Node.js
+
+ссылка для скачивания установщика: [https://nodejs.org/en/download/prebuilt-installer](https://nodejs.org/en/download/prebuilt-installer)
+
+и тоже рекомендую установливать в `Tools` (и там по-моему тоже что-то про PATH есть)
+
+2) Далее закачиваем сам этот репозиторий:
+
+в консоли переходим в папку в которую хотим закачать весь код и вызываем
+```
+git clone https://github.com/ScreepsAiProgrammiring/screeps-javascriptAI.git
+```
+
+после этого эту папку можно открыть в Visual Code - всё должно красиво подсвечиваться
+
+3) Для загрузки кода в саму игру на сервере
+
+Нужно установить [Grunt](https://gruntjs.com/getting-started) пакеты для screeps, для этого в папке, в терминале вызываем команды установки `grunt` плагинов:
+
+```
+npm install grunt
+```
+```
+npm install grunt-screeps
+```
+
+Теперь нужно, чтобы загрузка через `grunt` смог авторизоваться в системе, для этого:
+ - копируем файл `config.default.json` в папке, называем его `config.json`
+ - в этом файле нужно заполнить поле токен, он будет вида `"a1a11a11-1111-1111-a1aa-a111aa1a11a1"`
+ - его можно получить в настройках пользователя в самой игре: [браузерная ссылка](https://screeps.com/a/#!/account/auth-tokens)
+    Для этого нажимаем `Generate token` с выбранным тумблером `Full access`
+
+После всего, запускаем саму grunt-команду для загрузки кода на сервер:
+из основной папки вводим в терминале:
+```
+grunt screeps
+```
+
+После этого в самой игре код должен обновиться
+
+----
+
+P.S. выше я попытался выжать информацию по установке, описанную в документации по ссылкам [Commiting scripts](https://docs.screeps.com/commit.html#Using-Grunt-task), [Advanced Grunt Usage](https://docs.screeps.com/contributed/advanced_grunt.html) - если интересно, можно дойти ещё туда почитать
